@@ -1,6 +1,6 @@
 # Backend
 
-El frontend de este proyecto es: [URL del proyecto]
+El frontend de este proyecto es: https://github.com/JoseDFabra/frontend-enventario-react
 
 - **Requisitos:** Node.js, PostgreSQL (o Docker para Postgres local).
 - **Instalar:** `npm install`
