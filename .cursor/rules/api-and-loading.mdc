@@ -1,0 +1,9 @@
+---
+description: APIs que pueden demorar y convención de carga en el frontend
+alwaysApply: true
+---
+
+# Backend – APIs y carga
+
+- Los endpoints que realizan consultas a la base de datos o lógica pesada pueden tardar. El **frontend** muestra un spinner de carga unificado (`LoadingSpinner`) en todas las pantallas que dependen de estas respuestas.
+- Al añadir nuevos endpoints que el frontend consuma, no es necesario cambiar el backend por la carga: el frontend ya muestra el spinner mientras espera. Si se agrega una nueva pantalla o flujo que llame al backend, recordar usar el componente `LoadingSpinner` mientras `loading === true`.

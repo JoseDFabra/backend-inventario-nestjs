@@ -1,0 +1,11 @@
+---
+description: Contexto del proyecto Inventario - AWS, JWT, paneles (ventas, productos, inventario)
+alwaysApply: true
+---
+
+# Proyecto Inventario – Backend
+
+- **Destino**: AWS. Base de datos en **RDS (PostgreSQL)**. Frontend y backend en **contenedores Docker en EC2**. Usar `src/config/envs.ts` para DB, CORS, JWT.
+- **Auth**: Login que devuelve JWT; rutas protegidas con guard JWT. Contraseñas hasheadas (bcrypt).
+- **Módulos a tener**: Auth/usuarios, Productos (CRUD), Ventas (con relación a productos/inventario), Inventario (stock, movimientos – replicar lo que ya estaba).
+- Especificación completa: ver `PROJECT_SPEC.md` en la raíz del backend.

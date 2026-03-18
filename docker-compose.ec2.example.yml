@@ -1,0 +1,21 @@
+# Ejemplo para ejecutar el backend en EC2 (misma VPC que Aurora).
+# La base de datos NO está en este compose: es Aurora (acceso por endpoint privado).
+#
+# Uso en EC2:
+# 1. Crear .env en el servidor con DB_HOST=<endpoint-privado-aurora>, etc.
+# 2. docker compose -f docker-compose.ec2.example.yml up -d
+#
+# No se usa túnel SSH: los contenedores acceden directamente a Aurora en la VPC.
+
+services:
+  backend:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file: .env
+    environment:
+      # Asegurar que en EC2 se use el endpoint de Aurora (no localhost)
+      # DB_HOST debe estar definido en .env del servidor
+      - NODE_ENV=production
+      - APP_ENV=prod
+    restart: unless-stopped

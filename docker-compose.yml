@@ -1,0 +1,23 @@
+# Postgres opcional para desarrollo local (alternativa al túnel SSH a Aurora).
+# - Si usas túnel SSH a Aurora: no levantes este compose; DB_HOST=localhost, DB_PORT=5432 en .env.
+# - Si usas Postgres local en Docker: DB_HOST=localhost, DB_PORT=5433 (el host expone 5433 → 5432 del contenedor).
+# Uso: docker compose up -d  →  npm run start:dev  con DB_PORT=5433
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: inventory
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d inventory"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  postgres_data:
