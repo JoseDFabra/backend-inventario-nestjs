@@ -1,7 +1,8 @@
-# Backend (API)
+# Backend
 
-API del sistema de inventario (NestJS + TypeORM).
+El frontend de este proyecto es: [URL del proyecto]
 
-- `npm install`
-- Copiar `.env.example` a `.env` y configurar (DB, JWT, etc.). Ver **CONFIG.md** para entornos local (túnel SSH), EC2/Docker y producción.
-- `npm run start:dev` — desarrollo con recarga.
+- **Requisitos:** Node.js, PostgreSQL (o Docker para Postgres local).
+- **Instalar:** `npm install`
+- **Configurar:** Copiar `.env.template` a `.env` y ajustar `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`. Para Postgres en Docker: `docker compose up -d` y en `.env` usar `DB_PORT=5433`.
+- **Desarrollo:** `npm run start:dev`
